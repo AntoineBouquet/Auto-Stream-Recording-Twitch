@@ -23,7 +23,7 @@ class TwitchRecorder:
         self.oauth_tok_private  = ""                               # You can provide your private oauth token and record streams without ads or record sub-only streams (or leave blank if don't need), how to get oauth: https://imgur.com/a/j1Bg6JM
         self.ffmpeg_path        = ""                               # Path to ffmpeg.exe. Leave blank if Linux or ffmpeg in env PATH
         self.refresh            = 5.0                              # Time between checking (5.0 is recommended)
-        self.root_path          = ""                                # path to recorded and processed streams
+        self.root_path          = "/outputs"                       # path to recorded and processed streams
         self.timezoneName       = 'Europe/Paris'                  # name of timezone (list of timezones: https://stackoverflow.com/questions/13866926/is-there-a-list-of-pytz-timezones)
         self.chatdownload       = 1                                # 0 - disable chat downloading, 1 - enable chat downloading
         self.cmdstate           = 2                                # Windows: 0 - not minimazed cmd close after processing, 1 - minimazed cmd close after processing, 2 - minimazed cmd don't close after processing, 3 - no terminal, do in background
@@ -38,7 +38,7 @@ class TwitchRecorder:
         self.warning_windows    = 1                                # 0 - don't show warning windows (warnings will only be printed in terminal), 1 - show warning windows
 
         # user configuration
-        self.username = "nikill_"
+        self.username = "otplol_"
         self.quality  = "best"
 
     def run(self):

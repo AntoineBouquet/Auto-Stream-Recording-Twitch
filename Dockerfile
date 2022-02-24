@@ -4,7 +4,7 @@ RUN pip install pytz
 
 COPY . .
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
 
-# ENTRYPOINT ["python", "Auto_Recording_Twitch.py"]
+ENTRYPOINT ["python", "Auto_Recording_Twitch.py"]
 
