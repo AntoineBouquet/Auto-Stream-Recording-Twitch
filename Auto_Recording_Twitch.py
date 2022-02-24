@@ -21,15 +21,15 @@ class TwitchRecorder:
         self.client_id          = ""                               # If you don't have client id then register new app: https://dev.twitch.tv/console/apps
         self.client_secret      = ""                               # Manage application -> new secret
         self.oauth_tok_private  = ""                               # You can provide your private oauth token and record streams without ads or record sub-only streams (or leave blank if don't need), how to get oauth: https://imgur.com/a/j1Bg6JM
-        self.ffmpeg_path        = r"D:\\twitch"                    # Path to ffmpeg.exe. Leave blank if Linux or ffmpeg in env PATH
+        self.ffmpeg_path        = ""                               # Path to ffmpeg.exe. Leave blank if Linux or ffmpeg in env PATH
         self.refresh            = 5.0                              # Time between checking (5.0 is recommended)
-        self.root_path          = r"D:\\twitch"                    # path to recorded and processed streams
-        self.timezoneName       = 'Europe/Moscow'                  # name of timezone (list of timezones: https://stackoverflow.com/questions/13866926/is-there-a-list-of-pytz-timezones)
+        self.root_path          = ""                                # path to recorded and processed streams
+        self.timezoneName       = 'Europe/Paris'                  # name of timezone (list of timezones: https://stackoverflow.com/questions/13866926/is-there-a-list-of-pytz-timezones)
         self.chatdownload       = 1                                # 0 - disable chat downloading, 1 - enable chat downloading
         self.cmdstate           = 2                                # Windows: 0 - not minimazed cmd close after processing, 1 - minimazed cmd close after processing, 2 - minimazed cmd don't close after processing, 3 - no terminal, do in background
                                                                    # Linux:   0 - not minimazed terminal close after processing, 1 - not minimazed terminal don't close after processing, 2 - no terminal, do in background
         self.downloadVOD        = 0                                # 0 - disable VOD downloading after stream's ending, 1 - enable VOD downloading after stream's ending
-        self.dont_ask_to_delete = 0                                # 0 - always ask to delete previous processed streams from recorded folder, 1 - don't ask, don't delete, 2 - don't ask, delete
+        self.dont_ask_to_delete = 1                                # 0 - always ask to delete previous processed streams from recorded folder, 1 - don't ask, don't delete, 2 - don't ask, delete
         self.make_stream_folder = 1                                # 0 - don't make folders for each processed stream, 1 - make folders for each processed stream
         self.short_folder       = 0                                # 0 - date, title, game and username in processed VOD folder, 1 - only date in processed VOD folder
         self.hls_segments       = 3                                # 1-10 for live stream, it's possible to use multiple threads to potentially increase the throughput. 2-3 is enough
@@ -38,7 +38,7 @@ class TwitchRecorder:
         self.warning_windows    = 1                                # 0 - don't show warning windows (warnings will only be printed in terminal), 1 - show warning windows
 
         # user configuration
-        self.username = "gamesdonequick"
+        self.username = "nikill_"
         self.quality  = "best"
 
     def run(self):
