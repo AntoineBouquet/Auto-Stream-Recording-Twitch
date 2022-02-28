@@ -29,5 +29,8 @@ Thanks for source script to [junian](https://gist.github.com/junian/b41dd8e544bf
 
 ```
 docker build -t twitch-stream-record .
-docker run -d -v <HOST_PATH>:/outputs/recorded twitch-stream-record
+docker run -d -v <HOST_PATH>:/outputs/recorded \
+-e TWITCH_CLIENT_ID=<TWITCH_CLIENT_ID> \
+-e TWITCH_CLIENT_SECRET=<TWITCH_CLIENT_SECRET> \
+-e TWITCH_USERNAME=<TWITCH_USERNAME> twitch-stream-record
 ```

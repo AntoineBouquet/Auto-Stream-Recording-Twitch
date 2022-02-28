@@ -317,7 +317,8 @@ class TwitchRecorder:
                 print(datetime.datetime.now().strftime("%Hh%Mm%Ss")," ","Error with channel id or oauth token. Try to check internet connection or client-id and client-secret. Will try again in", self.refresh, "seconds.")
                 time.sleep(self.refresh)
             elif status == 0:
-                stream_title = str(info["data"][0]['title'])
+                # stream_title = str(info["data"][0]['title'])
+                stream_title = self.username
                 stream_title = "".join(x for x in stream_title if x.isalnum() or not x in ["/","\\",":","?","*",'"',">","<","|"]).replace('\n', '')
 
                 present_date     = datetime.datetime.now().strftime("%Y%m%d")
@@ -338,7 +339,7 @@ class TwitchRecorder:
                     else:
                         stream_title      = stream_title[:difference]
                         filename          = present_datetime + "_" + stream_title + '_' + str(info["data"][0]['game_name']) + "_" + self.username + ".mp4"
-                        filename          = "".join(x for x in filename if x.isalnum() or not x in ["/","\\",":","?","*",'"',">","<","|"]).replace('\n', '')
+                        filename          = "".join(x for x in filename if x.isalnum() or not x in ["/","\\",":","?","*",'"',">","<","|","•"]).replace('\n', '')
                         recorded_filename = os.path.join(self.recorded_path, filename)
 
                 # start streamlink process
@@ -688,9 +689,9 @@ class TwitchRecorder:
 
 def main(argv):
     twitch_recorder = TwitchRecorder()
-    usage_message = 'Auto_Recording_Twitch.py -u <username> -q <quality> -v <download VOD 1/0>'
+    usage_message = 'Auto_Recording_Twitch.py -u <username> -q <quality> -v <download VOD 1/0> -c <client_id> -s <client_secret>'
     try:
-        opts, args = getopt.getopt(argv,"hu:q:v:",["username=","quality=", "vod="])
+        opts, args = getopt.getopt(argv,"hu:q:v:c:s:",["username=","quality=", "vod=", "client-id=", "client-secret="])
     except getopt.GetoptError:
         print (usage_message)
         sys.exit(2)
@@ -704,6 +705,10 @@ def main(argv):
             twitch_recorder.quality = arg
         elif opt in ("-v", "--vod"):
             twitch_recorder.downloadVOD = arg
+        elif opt in ("-c", "--client-id"):
+            twitch_recorder.client_id = arg
+        elif opt in ("-s", "--client-secret"):
+            twitch_recorder.client_secret = arg
 
     twitch_recorder.run()
 
