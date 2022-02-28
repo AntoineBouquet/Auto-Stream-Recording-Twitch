@@ -689,9 +689,9 @@ class TwitchRecorder:
 
 def main(argv):
     twitch_recorder = TwitchRecorder()
-    usage_message = 'Auto_Recording_Twitch.py -u <username> -q <quality> -v <download VOD 1/0> -c <client_id> -s <client_secret>'
+    usage_message = 'Auto_Recording_Twitch.py -u <username> -q <quality> -v <download VOD 1/0> -c <client_id> -s <client_secret> -q <quality>'
     try:
-        opts, args = getopt.getopt(argv,"hu:q:v:c:s:",["username=","quality=", "vod=", "client-id=", "client-secret="])
+        opts, args = getopt.getopt(argv,"hu:q:v:c:s:q:",["username=","quality=", "vod=", "client-id=", "client-secret=", "quality="])
     except getopt.GetoptError:
         print (usage_message)
         sys.exit(2)
@@ -709,6 +709,8 @@ def main(argv):
             twitch_recorder.client_id = arg
         elif opt in ("-s", "--client-secret"):
             twitch_recorder.client_secret = arg
+        elif opt in ("-q", "--quality"):
+            twitch_recorder.quality = arg
 
     twitch_recorder.run()
 

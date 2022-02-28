@@ -17,5 +17,5 @@ COPY . .
 
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
 
-ENTRYPOINT export PATH="${HOME}/.local/bin:${PATH}" && python3 Auto_Recording_Twitch.py -c ${TWITCH_CLIENT_ID} -s ${TWITCH_CLIENT_SECRET} -u ${TWITCH_USERNAME}
+ENTRYPOINT export PATH="${HOME}/.local/bin:${PATH}" && python3 Auto_Recording_Twitch.py -c ${TWITCH_CLIENT_ID} -s ${TWITCH_CLIENT_SECRET} -u ${TWITCH_USERNAME} -q ${STREAM_QUALITY}
 

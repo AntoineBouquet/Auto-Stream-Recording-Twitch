@@ -32,5 +32,8 @@ docker build -t twitch-stream-record .
 docker run -d -v <HOST_PATH>:/outputs/recorded \
 -e TWITCH_CLIENT_ID=<TWITCH_CLIENT_ID> \
 -e TWITCH_CLIENT_SECRET=<TWITCH_CLIENT_SECRET> \
--e TWITCH_USERNAME=<TWITCH_USERNAME> twitch-stream-record
+-e TWITCH_USERNAME=<TWITCH_USERNAME> \
+-e STREAM_QUALITY=<STREAM_QUALITY> twitch-stream-record
 ```
+
+Stream quality could be `best` or `worst` to choose automatically the best or the worst quality, or specific quality (`1080p60`, `720p60`, etc.). If the quality specified does not exists, the record will not working.
